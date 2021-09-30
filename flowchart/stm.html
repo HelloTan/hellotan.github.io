@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>.: FlowChart :.</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+<script type="text/javascript">
+    var menuNum = 3;
+</script>
+<h4 class="title">Store multiple registers <br>
+    STM Rd, [Rn, Rm, Rx]    
+    </h4>
+    <div class="shader none" onclick="removeShade(this)"></div>
+    <div class="section_container">
+        <div class="accordion_section">
+            <div class="msgBoxBg"></div>
+            <div id="messageBox" class="">
+                <div id="step4_1" class="menuSteps">1. The instruction memory address is passed from address register to memory via address bus A[31:0]</div>
+                <div id="step4_2" class="menuSteps">2. The instruction is fetched from memory via data bus D[31:0]​</div>
+                <div id="step4_3" class="menuSteps">3. The instruction is decoded, and control signals are produced. The processor now knows it’s a store instruction and is aware of the registers needed.</div>
+                <div id="step4_4" class="menuSteps">4. The value in address register is incremented and copied back into r15 in the register bank. The incremented value is the address of the next instruction.​</div>
+                <div id="step4_5" class="menuSteps">5. The value stored in Rn is read on bus A.</div>
+                <div id="step4_6" class="menuSteps">6. The immediate or offset is fetched from data in register. It is read on bus B. </div>
+                <div id="step4_7" class="menuSteps">7. If there is any shift in the immediate it is calculated via barrel shifter. ​</div>
+                <div id="step4_8" class="menuSteps">8. Rn and offset are subjected to ALU which computes the value by performing the operation required. ​</div>
+                <div id="step4_9" class="menuSteps">9. The computed result is the address in which data is to be stored. It is copied back into address register and passed to the memory via address bus A[31:0].​</div>
+                <div id="step4_10" class="menuSteps">10. The value in Rd which is to be stored is read on bus B and placed in data out register</div>
+                <div id="step4_11" class="menuSteps">11. The value is passed to the memory via data bus D[31:0] to be stored at the address provided previously by the address bus​</div>
+                <div id="step4_12" class="menuSteps">12. the address of the next instruction which is stored in r15 (PC) is copied to address register.​</div>
+                <div id="step4_13" class="menuSteps">Loop into number 3</div>
+            </div>
+
+
+        </div>
+
+        <div class="flow_chart_sec">
+            <div class="flow_chart animatable_chart">
+                <div class="flow_chart_three nextStep">
+                    <div class="flow_chart_nine_content">
+                        <span class="text_bottom stepone hide hideImportant" id="d31" onclick="msgPop(this)">D[31:0]</span>
+                        <div class="Control stepone hide hideImportant">control</div>
+                        <span class="row_4_arrow stepone BgPink hide"></span>
+                        <div class="row r4 stepone BgPink hide" id="instruction-decode" onclick="msgPop(this)">
+
+                            <h2 class="stepone hide"> Instruction <br> Decode <br> Control </h2>
+
+                        </div>
+                        <span class="data_in_arrow stepone BgPink hide"></span>
+
+                        <input type="button" value="Data In Register" class="r_bb7 stepone BgPink hide" id="data-in" onclick="msgPop(this)">
+                        <span class="arrow_dwn1 stepone BgPink hide"></span>
+
+                        <span class="arrow_dwn10 stepnone BgPink hide"></span>
+                    </div>
+                </div>
+                <div class="flow_chart_one">
+                    <div class="flow_chart_one_content">
+                        <span class="text_top steptwo hide hideImportant" id="a31" onclick="msgPop(this)">A[31:0]</span>
+                        <span class="upper_arrow_f steptwo BgPink hide"></span>
+
+                        <input type="button" value="Address Register" class="r_bb1 steptwo stepsix BgPink hide" id="address-register" onclick="msgPop(this)">
+                        <span class="upper_arrow stepsix steptwofix BgPink hide"></span>
+                    </div>
+                    <div class="flow_chart_two_content">
+                        <input type="button" value="Incrementer" class="r_bb2 stepsix steptwofix BgPink hide" id="incrementer" onclick="msgPop(this)">
+                        <span class="f_c_t stepsix steptwofix BgPink hide"></span>
+                    </div>
+                    <div class="flow_chart_three_content">
+                        <span class="lower_arrow1 stepnone BgPink hide">
+                            <p class="stepnone hide">P<br>C</p>
+                        </span>
+                        <input type="button" value="Register Bank" class="r_bb3 steptwo BgPink hide" id="register_bank" onclick="msgPop(this)">
+                        <span class="StraitLine stepfour BgPink hide"></span>
+
+                        <span class="StraitLine_Arrow stepfour BgPink hide"></span>
+                    </div>
+                    
+                    <div class="abus_straitline stepthree BgPink hide">
+                        <p class="stepthree hide">A <br><br> B<br>U<br>S</p>
+                    </div>
+                    <div class="bank_arrow_2 stepthree BgPink hide">
+                    </div>
+
+                    <div class="flow_chart_five_content">
+                        <input type="button" value="Multiply Register" class="r_bb4 stepnone BgPink hide">
+                        <span class="r_bb44_arrow stepfour BgPink hide"></span>
+                        <span class="r_bb56_arrow BgPink hide"></span>
+                    </div>
+                    <div class="flow_chart_six_content">
+                        <input type="button" value="Barrel Shifter" class="r_bb4_4 stepfourr_bb56_arrow BgPink hide" id="barrel-shifter" onclick="msgPop(this)">
+                        <span class="r_bb4_arrow stepfour BgPink hide"></span>
+                    </div>
+                    <div class="flow_chart_seven_content">
+                        <input type="button" value="ALU" class="r_bb5 stepfive BgPink hide" id="ALU" onclick="msgPop(this)">
+                        <span class="alu_arrow stepseven BgPink hide">
+                        </span>
+                        <span class="alu_arrow_overlap stepseven BgPink hide">
+                        </span>
+                        <span class="alu_arrow1 stepseven BgPink hide">
+                        </span>
+                        <span class="alu_arrow1_overlap stepseven BgPink hide">
+                        </span>
+                    </div>
+                    <div class="flow_chart_eight_content ">
+                        <input type="button" value="Data Out Register" class="r_bb6 stepnone BgPink hide" id="data-out" onclick="msgPop(this)">
+
+                        <span class="arrow_dwn stepnone BgPink hide">
+                        </span>
+                    </div>
+                 </div>
+                 <div class="flow_chart_1_content">
+                     <div class="row r5">
+                         <!-- <div class="clip_4">
+                         </div> -->
+                         <span class="right_bar steptwo BgPink hide"></span>
+  
+                         <div class="clip_4in steptwo stepsix BgPink hide">
+                         </div>
+                         <div class="clip_4innnn stepseven BgDpPink hide">
+                         </div>
+                         <span class="right_bar_1 steptwo stepsix BgPink hide"><span class="stepsix hide">P C</span></span>
+                         <div class="clip_4inn stepfour BgPink hide">
+                         </div>
+                       <div class="clip_4innn stepfour BgPink hide">
+                             <p class="stepfour hide">B<br><br> B <br> U <br> S</p>
+                        </div>
+                        <div class="clip_4innn_overlap stepfour BgPink hide">
+                            <p class="stepfour hide">B<br><br> B <br> U <br> S</p>
+                        </div>
+                        <span class="right_bar_22 stepfour BgPink hide"></span>
+                        <span class="right_bar_22_overlap stepfour BgPink hide"></span>
+                        <div class="clip_4inn_arm stepnone BgPink hide"></div>
+                        <div class="clip_4inn_arrow stepnone BgPink hide"></div>
+                        
+                    </div>
+                </div>
+                
+                <div class="flow_chart_left">
+                    <span class="cl_path_1 stepnone BgPink hide"></span>
+                    <span class="cl_path_2 stepseven BgPink hide"></span>
+                    <div class="left_strait_line_1 BgPink hide"></div>
+                    <div class="left_strait_line_2 BgPink hide">
+                        <span class="alu stepseven hide"> A L U <span class="stepseven hide"><br><br><br>B U S</span></span>
+                    </div>
+                    <div class="left_strait_line_2_overlap BgPink hide">
+                        <span class="alu_overlap stepseven hide"> A L U <span class="stepseven hide"><br><br><br>B U S</span></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flow_chart"><img id="flowchart_img" src="flow-chart.svg"></div>
+            <div class="flow_chart">
+                <div class="icn-txt none">
+                    <h1> This tour demonstrates the functionality of this tool</h1>
+                    <button class="dismiss" onclick="dismiss()">Dismiss</button>
+                    <button class="next1" onclick="next(1)">Next</button>
+                    
+                </div>
+                <div class="pipeline-txt none">
+                    <h1> This diagram shows the organisation of the ARM processor. It is the 3-stage pipeline ARM organisation</h1>
+                    <button class="dismiss" onclick="dismiss()">Finish the tour</button>
+                    <button class="back" onclick="tour_back(0)">Back</button>
+                    <button class="next1" onclick="next(2)">Next</button>
+                    
+                </div>
+                <div class="ARM-txt none">
+                    <h1> These boxes provide explanation about  the execution of the instruction in the ARM processor</h1>
+                    <button class="dismiss" onclick="dismiss()">Finish the tour</button>
+                    <button class="back" onclick="tour_back(1)">Back</button>
+                    <button class="next1" onclick="next(3)">Next</button>
+                    
+                </div>
+                <div class="run-btn-txt none">
+                    <h1> The run button starts the instruction execution. After you press run, a stop button will appear to halt the execution</h1>
+                    <button class="dismiss" onclick="dismiss()">Finish the tour</button>
+                    <button class="back" onclick="tour_back(2)">Back</button>
+                    <button class="next1" onclick="next(4)">Next</button>
+                    
+                </div>
+                <div class="step-btn-txt none ">
+                    <h1> The step button goes through the instruction execution step by step</h1>
+                    <button class="dismiss" onclick="dismiss()">Finish the tour</button>
+                    <button class="back" onclick="tour_back(3)">Back</button>
+                    <button class="next1" onclick="next(5)">Next</button>
+                    
+                </div>
+                <div class="previous-btn-txt none">
+                    <h1> The previous button goes back to the preceding step</h1>
+                    <button class="dismiss" onclick="dismiss()">Finish the tour</button>
+                    <button class="back" onclick="tour_back(4)">Back</button>
+                    <button class="next1" onclick="next(6)">Next</button>
+                    
+                </div>
+                <div class="invisible-btn-txt none">
+                    <h1> The invisible button removes the background diagram of the processor and displays only the parts of the processor in use. After you press invisible, a visible button will appear to display the diagram again</h1>
+                    <button class="dismiss" onclick="dismiss()">Finish the tour</button>
+                    <button class="back" onclick="tour_back(5)">Back</button>
+                    <button class="next1" onclick="next(7)">Next</button>
+                    
+                </div>
+                <div class="speed-btn-txt none">
+                    <h1> The invisible button removes the background diagram of the processor and displays only the parts of the processor in use. After you press invisible, a visible button will appear to display the diagram again</h1>
+                    <button class="dismiss" onclick="dismiss()">Finish the tour</button>
+                    <button class="back" onclick="tour_back(6)">Back</button>
+                    <button class="next1" onclick="next(8)">Next</button>
+                    
+                </div>
+                <div class="information-btn-txt none">
+                    <h1> Press on the highlighted units to get further information about these components</h1>
+                    <button class="next1 finish" onclick="dismiss()">Finish the tour</button>
+                    <button class="back" onclick="tour_back(7)">Back</button>
+                    
+                </div>
+                <div class="register_bank msgPop none">
+                    <p><b>Register bank </b> has sixteen 32-bit memory locations called registers (R0 to R15). R15 is the Program Counter which stores the memory address of the next instruction to be executed.</p>
+                </div>
+                <div class="ALU msgPop none">
+                    <p><b>ALU</b> which performs the arithmetic and logic functions required by the instruction set.
+                    </p>
+                </div>
+                <div class="barrel-shifter msgPop none">
+                    <p><b>Barrel</b> shifter which can shift and rotate one operand by any number of bits.
+                    </p>
+                </div>
+                <div class="address-register msgPop none">
+                    <p><b>Address register</b> selects and holds memory addresses.
+                    </p>
+                </div>
+                <div class="incrementer msgPop none">
+                    <p><b>Incrementer</b> used to generate sequential addresses when required.
+                    </p>
+                </div>
+                <div class="data-out msgPop none">
+                    <p><b>Data out register</b> which hold data passing from the processor to the memory 
+                    </p>
+                </div>
+                <div class="data-in msgPop none">
+                    <p><b>Data in registers</b> which hold data passing from the memory to the processor
+                    </p>
+                </div>
+                <div class="instruction-decode msgPop none">
+                    <p><b>instruction decode and control
+                    </b> decodes machine instruction into control signals for the datapath</p>
+                </div>
+                <div class="a31 msgPop none">
+                    <p><b>Addrress Bus
+                    </b> Address bus is a one-way path from processor to memory which specifies the location of the memory element being accessed</p>
+                </div>
+                <div class="d31 msgPop none">
+                    <p><b>Data Bus
+                    </b> Data bus is a two-way path between processor and memory which transfers data</p>
+                </div>
+                <div class="btns">
+                    <input type="button" value="Run" class="btnForm" id="btnRun" onclick="run();">
+                    <input type="button" value="Step" class="btnForm" id="btnStep" onclick="steps();">
+                    <input type="button" value="Previous" class="btnForm" id="btnBack" onclick="back();">
+                    <input type="button" value="Invisible" class="btnForm" id="btnInvisible" onclick="visibility();">
+                    <button class="speed btnForm" onclick="speed(0)">Speed</button>
+                    <button class="btnForm"  onclick="next(0)">
+                        <img src="question-solid.svg" class="help-icn" alt="help">
+                    </button>
+                    <div class="speed_btn none">
+                        <button class="btnForm" onclick="speed(1)">slow</button>
+                        <button class="btnForm" onclick="speed(2)">medium</button>
+                        <button class="btnForm" onclick="speed(3)">fast</button>
+                    </div>
+                </div>
+                <div class="btns" style="display: none;">
+                    <div class="row r2">
+                        <form class="r2_form">
+                            <input type="button" value="Stop" class="btnForm" id="btnStop" onclick="stop();">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+    </div>
+    
+    <script type="text/javascript" src="script.js"></script>
+</body>
+</html>
